@@ -66,6 +66,7 @@
         mode: 0640
       loop:
         - keyboard
+        - locale
     - name: Import tasks to install package for {{ ansible_os_family | lower }} distribution
       ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}.yml"
     - name: Set timezone
