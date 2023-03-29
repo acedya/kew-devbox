@@ -22,9 +22,9 @@
       user: vagrant
       state: present
       key: "{{ lookup('file', '/home/vagrant/.ssh/id_rsa.pub') }}"
-  - name: Create my-vagrant-box folder
+  - name: Create kew-devbox folder
     ansible.builtin.file:
-      name: /home/vagrant/my-vagrant-box
+      name: /home/vagrant/kew-devbox
       state: directory
       owner: vagrant
       group: vagrant
@@ -32,7 +32,7 @@
   - name: Copy requirements.txt
     ansible.builtin.copy:
       src: ../requirements.txt
-      dest: /home/vagrant/my-vagrant-box
+      dest: /home/vagrant/kew-devbox
       owner: vagrant
       group: vagrant
       mode: 0640

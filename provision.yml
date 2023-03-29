@@ -66,12 +66,11 @@
         mode: 0640
       loop:
         - keyboard
-        - locale
     - name: Import tasks to install package for {{ ansible_os_family | lower }} distribution
       ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}.yml"
     - name: Set timezone
       community.general.timezone:
-        name: "Europe/Paris"
+        name: "Europe/Zurich"
       tags: keyboard
     - name: Add user to groups
       ansible.builtin.user:
@@ -186,7 +185,7 @@
         - tldr
     - name: Install pip packages
       ansible.builtin.pip:
-        requirements: "/home/{{ user }}/my-vagrant-box/requirements.txt"
+        requirements: "/home/{{ user }}/kew-devbox/requirements.txt"
       become: false
       tags: pip
     - name: Install vagrant plugin libvirt
